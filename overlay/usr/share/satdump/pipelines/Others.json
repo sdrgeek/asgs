@@ -1,0 +1,315 @@
+{
+    "saral_l_band": {
+        "name": "Saral L-Band",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "DB",
+                1698.4e6
+            ]
+        ],
+        "samplerate": 3e6,
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 400e3,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.002
+                }
+            },
+            "cadu": {
+                "ccsds_conv_concat_decoder": {
+                    "constellation": "qpsk",
+                    "cadu_size": 8192,
+                    "viterbi_ber_thresold": 0.300,
+                    "viterbi_outsync_after": 20,
+                    "derandomize": true,
+                    "nrzm": true,
+                    "rs_i": 4,
+                    "rs_type": "rs223"
+                }
+            },
+            "products": {
+                "saral_argos": {}
+            }
+        }
+    },
+    "angels_l_band": {
+        "name": "ANGELS L-Band",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "DB",
+                1698.4e6
+            ]
+        ],
+        "samplerate": 3e6,
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 400e3,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.002
+                }
+            },
+            "cadu": {
+                "ccsds_conv_concat_decoder": {
+                    "constellation": "qpsk",
+                    "cadu_size": 8192,
+                    "viterbi_ber_thresold": 0.300,
+                    "viterbi_outsync_after": 20,
+                    "derandomize": true,
+                    "nrzm": true,
+                    "rs_i": 4,
+                    "rs_type": "rs223"
+                }
+            },
+            "products": {
+                "angels_argos": {}
+            }
+        }
+    },
+    "gazelle_l_band": {
+        "name": "OTB-3/Gazelle L-Band",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "DB",
+                1703e6
+            ]
+        ],
+        "samplerate": 3e6,
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 1e6,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.002
+                }
+            },
+            "cadu": {
+                "ccsds_conv_concat_decoder": {
+                    "constellation": "qpsk",
+                    "cadu_size": 8192,
+                    "viterbi_ber_thresold": 0.300,
+                    "viterbi_outsync_after": 20,
+                    "derandomize": true,
+                    "nrzm": true,
+                    "rs_i": 4,
+                    "rs_type": "rs223"
+                }
+            },
+            "products": {}
+        }
+    },
+    "yunhai_ahrpt": {
+        "name": "Yunhai AHRPT - Encrypted",
+        "live": false,
+        "frequencies": [
+            [
+                "DB",
+                1704e6
+            ]
+        ],
+        "samplerate": 6e6,
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 4e6,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.002
+                }
+            },
+            "cadu": {
+                "fengyun_ahrpt_decoder": {
+                    "viterbi_outsync_after": 20,
+                    "viterbi_ber_thresold": 0.250,
+                    "invert_second_viterbi": false
+                }
+            }
+        }
+    },
+    "syracuse3b_tlm": {
+        "name": "Syracuse 3B TLM",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ]
+        ],
+        "work": {
+            "baseband": {},
+            "soft": {
+                "pm_demod": {
+                    "symbolrate": 156e3,
+                    "pll_bw": 0.005,
+                    "pll_max_offset": 0.5,
+                    "rrc_alpha": 0.25,
+                    "rrc_taps": 31,
+                    "costas_bw": 0.005,
+                    "clock_omega_relative_limit": 0.005
+                }
+            }
+        }
+    },
+    "scisat1_dump": {
+        "name": "SciSat-1 Dump",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "Main",
+                2232e6
+            ]
+        ],
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 2e6,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.005
+                }
+            },
+            "cadu": {
+                "ccsds_simple_psk_decoder": {
+                    "constellation": "qpsk",
+                    "cadu_size": 9592,
+                    "rs_i": 5,
+                    "rs_fill_bytes": 16,
+                    "rs_type": "rs223"
+                }
+            },
+            "products": {
+                "scisat1_instruments": {}
+            }
+        }
+    },
+    "CALIPSO": {
+        "name": "Calipso S band Dump",
+        "live": false,
+        "live_cfg": [],
+        "frequencies": [
+            [
+                "Main",
+                2268.5e6
+            ]
+        ],
+        "parameters": {
+            "samplerate": {
+                "value": 6e6
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 0.839e6,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.004
+                }
+            },
+            "cadu": {
+                "ccsds_conv_concat_decoder": {
+                    "constellation": "qpsk",
+                    "cadu_size": 10232,
+                    "viterbi_ber_thresold": 0.300,
+                    "viterbi_outsync_after": 20,
+                    "rs_i": 5,
+                    "nrzm": true,
+                    "rs_type": "rs223"
+                }
+            }
+        }
+    },
+    "youthsat_dump": {
+        "name": "YouthSat Dump",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            /*[
+                "Main",
+                2232e6
+            ]*/
+        ],
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "bpsk",
+                    "symbolrate": 1.56e6,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.005
+                }
+            },
+            "cadu": {
+                "ccsds_simple_psk_decoder": {
+                    "constellation": "bpsk",
+                    "cadu_size": 8192,
+                    "rs_i": 0
+                    //,"rs_type": "rs223"
+                }
+            },
+            "products": {}
+        }
+    }
+}

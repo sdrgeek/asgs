@@ -1,0 +1,104 @@
+#pragma once
+
+#include <complex>
+
+/*
+Simple complex numbers implementation.
+While this isn't really required, as std::complex<float>
+usually does very fine, some inconsistencies in performance
+were observed between platforms.
+Hence, seems like providing our own helps a lot more than I
+originally expected / tested on my machine.
+*/
+struct complex_t
+{
+    float real;
+    float imag;
+
+    complex_t() : real(0), imag(0) {}
+    complex_t(float real) : real(real), imag(0) {}
+    complex_t(float real, float imag) : real(real), imag(imag) {}
+    complex_t(std::complex<float> v) : real(v.real()), imag(v.imag()) {}
+    operator std::complex<float>() const { return std::complex<float>(real, imag); }
+    // operator std::complex<float> *() const { return (std::complex<float> *)this; }
+
+    // Complex conjugate
+    complex_t conj() const
+    {
+        return complex_t{real, -imag};
+    }
+
+    // Normal
+    float norm()
+    {
+        return sqrt(real * real + imag * imag);
+    }
+
+    // Argument
+    float arg()
+    {
+        return atan2f(imag, real);
+    }
+
+    // Complex / Complex operations
+    complex_t operator+(const complex_t &b)
+    {
+        return complex_t(real + b.real, imag + b.imag);
+    }
+
+    complex_t &operator+=(const complex_t &b)
+    {
+        real += b.real;
+        imag += b.imag;
+        return *this;
+    }
+
+    complex_t operator-(const complex_t &b)
+    {
+        return complex_t(real - b.real, imag - b.imag);
+    }
+
+    complex_t &operator-=(const complex_t &b)
+    {
+        real -= b.real;
+        imag -= b.imag;
+        return *this;
+    }
+
+    complex_t operator*(const complex_t &b)
+    {
+        return complex_t((real * b.real) - (imag * b.imag),
+                         (imag * b.real) + (real * b.imag));
+    }
+
+    // Complex / Int
+    void operator=(const int &b)
+    {
+        real = b;
+        imag = 0;
+    }
+
+    // Complex / Float operations
+    void operator=(const float &b)
+    {
+        real = b;
+        imag = 0;
+    }
+
+    complex_t operator*(const float &b)
+    {
+        return complex_t(real * b, imag * b);
+    }
+
+    complex_t operator/(const float &b)
+    {
+        return complex_t(real / b, imag / b);
+    }
+
+    complex_t &operator*=(const float &b)
+    {
+        real *= b;
+        imag *= b;
+        return *this;
+    }
+};

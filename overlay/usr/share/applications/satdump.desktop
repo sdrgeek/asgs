@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/usr/bin/satdump-ui
+Name=SatDump
+Icon=/usr/share/satdump/icon.png
+StartupWMClass=SatDump v1.1.4
+Categories=HamRadio

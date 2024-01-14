@@ -1,0 +1,54 @@
+{
+    "dmsp_rtd": {
+        "name": "DMSP RTD",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "Main",
+                2252.5e6
+            ]
+        ],
+        "parameters": {
+            "satellite_number": {
+                "type": "options",
+                "value": "18",
+                "name": "DMSP Satellite",
+                "options": [
+                    "17",
+                    "18"
+                ],
+                "description": "DMSP does not transmit a satellite ID.\nAs instrument configurations does vary between them,\nit is required to identify the satellite."
+            },
+            "samplerate": {
+                "value": 2e6
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "bpsk",
+                    "symbolrate": 1.024e6,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.005
+                }
+            },
+            "frm": {
+                "dmsp_rtd_decoder": {}
+            },
+            "products": {
+                "dmsp_rtd_instruments": {}
+            }
+        }
+    }
+}

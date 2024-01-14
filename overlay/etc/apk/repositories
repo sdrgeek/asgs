@@ -1,0 +1,4 @@
+/media/mmcblk0p1/apks
+https://dl-cdn.alpinelinux.org/alpine/latest-stable/main
+https://dl-cdn.alpinelinux.org/alpine/latest-stable/community
+@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing

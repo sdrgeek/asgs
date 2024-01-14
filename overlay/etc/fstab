@@ -1,0 +1,5 @@
+/dev/cdrom	/media/cdrom	iso9660	noauto,ro 0 0
+/dev/usbdisk	/media/usb	vfat	noauto,ro 0 0
+UUID=575ede3c-b353-4e52-8967-163a25bfaf13	/media/mmcblk0p2	ext4	noauto,ro 0 0
+
+https://cloud.sdrgeek.local/remote.php/dav/files/sdrgeek/asgs-data /root/asgs-data davfs noauto 0 0

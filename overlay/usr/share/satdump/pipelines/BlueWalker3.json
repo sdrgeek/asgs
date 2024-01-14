@@ -1,0 +1,87 @@
+{
+    "bluewalker3_wide": {
+        "name": "BlueWalker-3 S-Band Wide",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "Main",
+                2245e6
+            ]
+        ],
+        "work": {
+            "baseband": {},
+            "soft": {
+                "fsk_demod": {
+                    "symbolrate": 512e3,
+                    "rrc_alpha": 0.35
+                }
+            },
+            "cadu": {
+                "ccsds_conv_concat_decoder": {
+                    "constellation": "bpsk_90",
+                    "cadu_size": 9784,
+                    "viterbi_ber_thresold": 0.300,
+                    "viterbi_outsync_after": 20,
+                    "derandomize": true,
+                    "rs_i": 0
+                }
+            },
+            "products": {}
+        }
+    },
+    "bluewalker3_narrow": {
+        "name": "BlueWalker-3 S-Band Narrow",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "Main",
+                2245e6
+            ]
+        ],
+        "work": {
+            "baseband": {},
+            "soft": {
+                "fsk_demod": {
+                    "symbolrate": 128e3,
+                    "rrc_alpha": 0.35
+                }
+            },
+            "cadu": {
+                "ccsds_conv_concat_decoder": {
+                    "constellation": "bpsk_90",
+                    "cadu_size": 2648,
+                    "viterbi_ber_thresold": 0.300,
+                    "viterbi_outsync_after": 20,
+                    "derandomize": true,
+                    "rs_i": 0
+                }
+            },
+            "products": {
+                "bw3_decoder": {
+                    "cadu_size": 331,
+                    "payload_size": 198
+                }
+            }
+        }
+    }
+}

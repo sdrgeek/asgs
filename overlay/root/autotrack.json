@@ -1,0 +1,73 @@
+{
+    "parameters": {
+	"source": "rtlsdr",
+        "samplerate": 1.024e6,
+        "gain": 47.0,
+        "bias": false,
+        "initial_frequency": 137.5e6
+    },
+    "output_folder": "./asgs-data",
+    "qth": {
+        "lat": ,
+        "lon": ,
+        "alt": 
+    },
+    "http_server": "0.0.0.0:80",
+    "tracking": {
+        "rotator_config": {
+            "rotctl": {
+                "address": "127.0.0.1",
+                "port": 4533
+            }
+        },
+        "rotator_algo": {
+            "park_position": {
+                "az": 0.0,
+                "el": 90.0
+            },
+            "park_while_idle": true,
+            "unpark_at_minus": 60.0,
+            "update_period": 0.1
+        },
+        "min_elevation": 10.0
+    },
+    "tracked_objects": [
+        {
+            "norad": 25338,
+            "frequency": 137.62e6,
+            "live": true,
+            "pipeline_name": "noaa_apt",
+            "pipeline_params": {
+                "autocrop_wedges": true,
+                "satellite_number": "15",
+                "sdrpp_noise_reduction": true,
+                "start_timestamp": -1.0
+            }
+        },
+        {
+            "norad": 28654,
+            "frequency": 137.9125e6,
+            "live": true,
+            "pipeline_name": "noaa_apt",
+            "pipeline_params": {
+                "autocrop_wedges": true,
+                "satellite_number": "18",
+                "sdrpp_noise_reduction": true,
+                "start_timestamp": -1.0
+            }
+        },
+        {
+            "norad": 33591,
+            "frequency": 137.1e6,
+            "live": true,
+            "pipeline_name": "noaa_apt",
+            "pipeline_params": {
+                "autocrop_wedges": true,
+                "satellite_number": "19",
+                "sdrpp_noise_reduction": true,
+                "start_timestamp": -1.0
+            }
+        }
+    ]
+}
+

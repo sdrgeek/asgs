@@ -1,0 +1,32 @@
+#!/sbin/openrc-run
+
+name="SatDump"
+description="SatDump"
+
+command="satdump autotrack autotrack.json"
+directory="/root"
+
+command_background=true
+pidfile=/run/satdump.pid
+
+error_log=/var/log/satdump.err
+output_log=/var/log/satdump.log
+
+depends() {
+  needs net-online
+}
+
+start_pre() {
+  if [ "${RC_CMD}" = "start" ] ; then
+    do_mount /root/asgs-data
+  fi
+}
+
+do_mount() {
+  if test -z "$(mount | grep -E "\s$1\s")"; then
+    echo "  mount $1"
+    mount $1
+  else
+    echo "  already mounted: $1"
+  fi
+}

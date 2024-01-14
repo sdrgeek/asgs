@@ -1,0 +1,665 @@
+{
+    "aeolus_dump": {
+        "name": "Aeolus Dump",
+        "samplerate": 10e6,
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "oqpsk",
+                    "symbolrate": 5e6,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.006
+                }
+            }
+        }
+    },
+    "smos_dump": {
+        "name": "SMOS X-Band Dump",
+        "samplerate": 20e6,
+        "work": {
+            "baseband": {},
+            "soft": {
+                "8psk_demod": {
+                    "symbolrate": 9000000,
+                    "agc_rate": 0.00001,
+                    "rrc_alpha": 0.5,
+                    "rrc_taps": 31,
+                    "costas_bw": 0.001,
+                    "clock_omega_relative_limit": 0.001
+                }
+            },
+            "cadu": {}
+        }
+    },
+    "prisma_dump": {
+        "name": "PRISMA X-Band Dump",
+        "samplerate": 90e6,
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 77.5e6,
+                    "rrc_alpha": 0.35,
+                    "pll_bw": 0.0189
+                }
+            },
+            "cadu": {
+                "ccsds_simple_psk_decoder": {
+                    "constellation": "qpsk",
+                    "cadu_size": 8304,
+                    "nrzm": true,
+                    "derandomize": true,
+                    "rs_i": 0
+                }
+            },
+            "products": {}
+        }
+    },
+    "smap_s_link": {
+        "name": "SMAP S-Band Link",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "SMAP",
+                2274e6
+            ]
+        ],
+        "parameters": {
+            "samplerate": {
+                "value": 3e6
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "bpsk",
+                    "symbolrate": 590e3,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.04
+                }
+            },
+            "cadu": {
+                "ccsds_simple_psk_decoder": {
+                    "constellation": "bpsk",
+                    "cadu_size": 10232,
+                    "derandomize": true,
+                    "nrzm": true,
+                    "rs_i": 5,
+                    "rs_type": "rs239"
+                }
+            }
+        }
+    },
+    "cheops_link": {
+        "name": "CHEOPS S-Band Dump",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "Main",
+                2208.5e6
+            ]
+        ],
+        "samplerate": 3e6,
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "oqpsk",
+                    "symbolrate": 1.142e6,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.006
+                }
+            },
+            "cadu": {
+                "ccsds_simple_psk_decoder": {
+                    "constellation": "qpsk",
+                    "cadu_size": 10232,
+                    "oqpsk_delay": true,
+                    "rs_i": 5,
+                    "rs_type": "rs223"
+                }
+            }
+        }
+    },
+    "timed_dump": {
+        "name": "TIMED S-Band Dump",
+        "frequencies": [
+            [
+                "Main",
+                2214.97e6
+            ]
+        ],
+        "samplerate": 6e6,
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 2.295e6,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.006
+                }
+            },
+            "cadu": {
+                "ccsds_simple_psk_decoder": {
+                    "constellation": "qpsk",
+                    "cadu_size": 9872,
+                    "nrzm": true,
+                    "derand_after_rs": true,
+                    "rs_i": 0,
+                    "rs_fill_bytes": 9,
+                    "rs_type": "rs223"
+                }
+            }
+        }
+    },
+    "grace_fo_link": {
+        "name": "Grace-FO Dump",
+        "samplerate": 20e6,
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "oqpsk",
+                    "symbolrate": 1.5e6,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.006
+                }
+            },
+            "cadu": {
+                "ccsds_simple_psk_decoder": {
+                    "constellation": "qpsk",
+                    "oqpsk_method3": true,
+                    "cadu_size": 10232,
+                    "nrzm": false,
+                    "rs_i": 5,
+                    "rs_type": "rs239"
+                }
+            }
+        }
+    },
+    "cfosat1_dump": {
+        "name": "CFOSAT-1 X-Band Dump",
+        "samplerate": 40e6,
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 30e6,
+                    "rrc_alpha": 0.35,
+                    "pll_bw": 0.0189
+                }
+            },
+            "cadu": {
+                "ccsds_simple_psk_decoder": {
+                    "constellation": "qpsk",
+                    "cadu_size": 8192,
+                    "nrzm": true,
+                    "rs_i": 4,
+                    "rs_type": "rs223"
+                }
+            }
+        }
+    },
+    "eumetcast_africa": {
+        "name": "EUMETCAST Africa",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ]
+        ],
+        "work": {
+            "baseband": {},
+            "bbframe": {
+                "dvbs2_demod": {
+                    "symbolrate": 9.892e6,
+                    "rrc_alpha": 0.2,
+                    "pll_bw": 0.01,
+                    "modcod": 7,
+                    "shortframes": false,
+                    "pilots": false,
+                    // "sof_thresold": 10, // Disable locking
+                    "freq_prop_factor": 0.01
+                }
+            }
+        }
+    },
+    "smos_tlm": {
+        "name": "SMOS TLM",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "SMOS TLM",
+                2216e6
+            ]
+        ],
+        "samplerate": 6e6,
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 838878,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.006
+                }
+            },
+            "cadu": {
+                "ccsds_conv_concat_decoder": {
+                    "constellation": "qpsk",
+                    "cadu_size": 10232,
+                    "viterbi_ber_thresold": 0.250,
+                    "viterbi_outsync_after": 20,
+                    "derandomize": true,
+                    "nrzm": true,
+                    "rs_i": 5,
+                    "rs_type": "rs223"
+                }
+            }
+        }
+    },
+    "neossat_dump": {
+        "name": "NEOSSAT Dump",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "samplerate": 6e6,
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 2e6,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.006
+                }
+            },
+            "cadu": {
+                "ccsds_conv_concat_decoder": {
+                    "constellation": "qpsk",
+                    "cadu_size": 10232,
+                    "viterbi_ber_thresold": 0.250,
+                    "viterbi_outsync_after": 20,
+                    "derandomize": true,
+                    "nrzm": false,
+                    "iq_invert": true,
+                    "rs_i": 5,
+                    "rs_type": "rs223"
+                }
+            }
+        }
+    },
+    "formosat5_s_dump": {
+        "name": "Formosat-5 S-Band dump",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "Main",
+                2215e6
+            ]
+        ],
+        "parameters": {},
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "bpsk",
+                    "symbolrate": 1.6e6,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.006
+                }
+            },
+            "cadu": {
+                "ccsds_simple_psk_decoder": {
+                    "constellation": "bpsk",
+                    "cadu_size": 10232,
+                    "rs_i": 5,
+                    "rs_type": "rs223"
+                }
+            },
+            "products": {}
+        }
+    },
+    "ops_sat_s_link": {
+        "name": "OPS-SAT S-Band Link",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "Main",
+                2229.5e6
+            ]
+        ],
+        "samplerate": 6e6,
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 1e6,
+                    "rrc_alpha": 0.15,
+                    "pll_bw": 0.002
+                }
+            },
+            "cadu": {
+                "ccsds_conv_concat_decoder": {
+                    "constellation": "qpsk",
+                    "cadu_size": 8952,
+                    "viterbi_ber_thresold": 0.300,
+                    "viterbi_outsync_after": 20,
+                    "derandomize": true,
+                    "iq_invert": true,
+                    "nrzm": false,
+                    "rs_i": 0
+                }
+            }
+        }
+    },
+    "swot_tlm": {
+        "name": "SWOT S-Band TLM",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "SWOT",
+                2282.4e6
+            ]
+        ],
+        "parameters": {
+            "samplerate": {
+                "value": 6e6
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "oqpsk",
+                    "symbolrate": 932e3,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.006
+                }
+            },
+            "cadu": {
+                "ccsds_conv_concat_decoder": {
+                    "constellation": "qpsk",
+                    "cadu_size": 10232,
+                    "oqpsk_mode": true,
+                    "nrzm": true,
+                    "viterbi_ber_thresold": 0.300,
+                    "viterbi_outsync_after": 20,
+                    "derandomize": true,
+                    "rs_i": 5,
+                    "rs_type": "rs223"
+                }
+            }
+        }
+    },
+    "tiahne1_tlm": {
+        "name": "Tiahne-1 TLM",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [],
+        "parameters": {},
+        "work": {
+            "baseband": {},
+            "soft": {
+                "pm_demod": {
+                    "resample_after_pll": true,
+                    "symbolrate": 64e3,
+                    "pll_bw": 0.01,
+                    "rrc_alpha": 0.5,
+                    "costas_bw": 0.005,
+                    "subcarrier_offset": 350e3
+                }
+            },
+            "frames": {
+                "ccsds_simple_psk_decoder": {
+                    "constellation": "bpsk",
+                    "cadu_size": 8192,
+                    "ccsds": false,
+                    "nrzm": true,
+                    "derandomize": false,
+                    "asm": "0xa91a8c29",
+                    "rs_i": 0
+                }
+            },
+            "products": {}
+        }
+    },
+    "paz_s_tlm": {
+        "name": "PAZ S-band telemetry",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "PAZ TLM",
+                2285e6
+            ]
+        ],
+        "parameters": {
+            "samplerate": {
+                "value": 6e6
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "bpsk",
+                    "symbolrate": 1e6,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.006
+                }
+            },
+            "cadu": {
+                "ccsds_simple_psk_decoder": {
+                    "constellation": "bpsk",
+                    "cadu_size": 8952,
+                    "derandomize": true,
+                    "rs_i": 0,
+                    "rs_type": "rs223"
+                }
+            }
+        }
+    },
+    "gcom_s_band": {
+        "name": "GCOM S-Band link",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "GCOM-C",
+                2220e6
+            ]
+        ],
+        "parameters": {
+            "samplerate": {
+                "value": 6e6
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "oqpsk",
+                    "symbolrate": 500e3,
+                    "rrc_alpha": 0.35,
+                    "pll_bw": 0.005
+                }
+            },
+            "cadu": {
+                "ccsds_simple_psk_decoder": {
+                    "constellation": "qpsk",
+                    "oqpsk_mode": true,
+                    "cadu_size": 2048,
+                    "derandomize": true,
+                    "nrzm": false,
+                    "rs_i": 1,
+                    "rs_type": "rs223"
+                }
+            }
+        }
+    },
+    "cosmos_2518_sband": {
+        "name": "Cosmos-2518 S-Band link",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ]
+        ],
+        "frequencies": [],
+        "parameters": {
+            "samplerate": {
+                "value": 6e6
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "bpsk",
+                    "symbolrate": 16e3,
+                    "rrc_alpha": 0.35,
+                    "pll_bw": 0.008
+                }
+            },
+            "cadu": {}
+        }
+    },
+    "chinese_spaceplane_sband": {
+        "name": "Chinese Spaceplane S-Band link",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ]
+        ],
+        "frequencies": [],
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "bpsk",
+                    "symbolrate": 3.06e6,
+                    "rrc_alpha": 0.35,
+                    "pll_bw": 0.008
+                }
+            },
+            "cadu": {}
+        }
+    }
+}

@@ -1,0 +1,544 @@
+{
+    "fengyun3_ab_ahrpt": {
+        "name": "FengYun-3 A/B AHRPT",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "Main",
+                1704.5e6
+            ]
+        ],
+        "parameters": {
+            "samplerate": {
+                "value": 6e6
+            },
+            "write_c10": {
+                "type": "bool",
+                "value": false,
+                "name": "Generate .C10",
+                "description": "Generate a .C10 file to load into HRPT Reader for processing."
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 2800000,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.003
+                }
+            },
+            "cadu": {
+                "fengyun_ahrpt_decoder": {
+                    "viterbi_outsync_after": 20,
+                    "viterbi_ber_thresold": 0.26,
+                    "invert_second_viterbi": false
+                }
+            },
+            "products": {
+                "fy3_instruments": {
+                    "satellite": "fy3ab"
+                }
+            }
+        }
+    },
+    "fengyun3_c_ahrpt": {
+        "name": "FengYun-3 C AHRPT ",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [
+            [
+                "Main",
+                1701.4e6
+            ]
+        ],
+        "parameters": {
+            "samplerate": {
+                "value": 6e6
+            },
+            "write_c10": {
+                "type": "bool",
+                "value": false,
+                "name": "Generate .C10",
+                "description": "Generate a .C10 file to load into HRPT Reader for processing."
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 2600000,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.003
+                }
+            },
+            "cadu": {
+                "fengyun_ahrpt_decoder": {
+                    "viterbi_outsync_after": 20,
+                    "viterbi_ber_thresold": 0.26,
+                    "invert_second_viterbi": false
+                }
+            },
+            "products": {
+                "fy3_instruments": {
+                    "satellite": "fy3c"
+                }
+            }
+        }
+    },
+    "fengyun3_abc_mpt": {
+        "name": "FengYun-3 A/B/C MPT",
+        "live": false,
+        "frequencies": [],
+        "parameters": {
+            "dump_mersi": {
+                "type": "bool",
+                "value": false,
+                "name": "Dump MERSI(.bin)",
+                "description": "Dump raw MERSI frames for processing with\nother software, such as Fred's WeatherSat!"
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 18.7e6,
+                    "rrc_alpha": 0.5,
+                    "pll_bw": 0.0063
+                }
+            },
+            "cadu": {
+                "fengyun_mpt_decoder": {
+                    "viterbi_outsync_after": 20,
+                    "viterbi_ber_thresold": 0.300
+                }
+            },
+            "products": {
+                "fy3_instruments": {
+                    "satellite": "fy3ab",
+                    "downlink": "mpt",
+                    "mersi_bowtie": true,
+                    "mersi_histmatch": true
+                }
+            }
+        }
+    },
+    "fengyun3_d_ahrpt": {
+        "name": "FengYun-3 D AHRPT",
+        "live": false,
+        "frequencies": [],
+        "parameters": {
+            "dump_mersi": {
+                "type": "bool",
+                "value": false,
+                "name": "Dump MERSI(.bin)",
+                "description": "Dump raw MERSI frames for processing with\nother software, such as Fred's WeatherSat!"
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 30e6,
+                    "rrc_alpha": 0.35,
+                    "pll_bw": 0.008
+                }
+            },
+            "cadu": {
+                "fengyun_ahrpt_decoder": {
+                    "viterbi_outsync_after": 20,
+                    "viterbi_ber_thresold": 0.26,
+                    "invert_second_viterbi": true
+                }
+            },
+            "products": {
+                "fy3_instruments": {
+                    "satellite": "fy3d",
+                    "mersi_bowtie": true,
+                    "mersi_histmatch": true
+                }
+            }
+        }
+    },
+    "fengyun3_e_ahrpt": {
+        "name": "FengYun-3 E AHRPT",
+        "live": false,
+        "frequencies": [],
+        "parameters": {
+            "dump_mersi": {
+                "type": "bool",
+                "value": false,
+                "name": "Dump MERSI(.bin)",
+                "description": "Dump raw MERSI frames for processing with\nother software, such as Fred's WeatherSat!"
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 38.4e6,
+                    "rrc_alpha": 0.35,
+                    "pll_bw": 0.008
+                }
+            },
+            "cadu": {
+                "fengyun_ahrpt_decoder": {
+                    "viterbi_outsync_after": 20,
+                    "viterbi_ber_thresold": 0.26,
+                    "invert_second_viterbi": true
+                }
+            },
+            "products": {
+                "fy3_instruments": {
+                    "satellite": "fy3e",
+                    "mersi_bowtie": true,
+                    "mersi_histmatch": true
+                }
+            }
+        }
+    },
+    "fengyun3_f_ahrpt": {
+        "name": "FengYun-3 F AHRPT",
+        "live": false,
+        "frequencies": [],
+        "parameters": {
+            "dump_mersi": {
+                "type": "bool",
+                "value": false,
+                "name": "Dump MERSI(.bin)",
+                "description": "Dump raw MERSI frames for processing with\nother software, such as Fred's WeatherSat!"
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 38.4e6,
+                    "rrc_alpha": 0.35,
+                    "pll_bw": 0.008
+                }
+            },
+            "cadu": {
+                "fengyun_ahrpt_decoder": {
+                    "viterbi_outsync_after": 20,
+                    "viterbi_ber_thresold": 0.26,
+                    "invert_second_viterbi": true
+                }
+            },
+            "products": {
+                "fy3_instruments": {
+                    "satellite": "fy3f",
+                    "mersi_bowtie": true,
+                    "mersi_histmatch": true
+                }
+            }
+        }
+    },
+    "fengyun3_g_ahrpt": {
+        "name": "FengYun-3 G AHRPT",
+        "live": false,
+        "frequencies": [],
+        "parameters": {
+            "satellite_rotated": {
+                "type": "bool",
+                "value": false,
+                "name": "Rotated Satellite",
+                "description": "FengYun-3G sometimes gets rotated.\nWhen this happens, the images will appear very choppy or swapped.\nThis option will fix it."
+            },
+            "dump_mersi": {
+                "type": "bool",
+                "value": false,
+                "name": "Dump MERSI(.bin)",
+                "description": "Dump raw MERSI frames for processing with\nother software, such as Fred's WeatherSat!"
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 6e6,
+                    "rrc_alpha": 0.35,
+                    "pll_bw": 0.008
+                }
+            },
+            "cadu": {
+                "fengyun_ahrpt_decoder": {
+                    "viterbi_outsync_after": 20,
+                    "viterbi_ber_thresold": 0.26,
+                    "invert_second_viterbi": true
+                }
+            },
+            "products": {
+                "fy3_instruments": {
+                    "satellite": "fy3g",
+                    "mersi_bowtie": true,
+                    "mersi_histmatch": true
+                    // "mersi_rotate": false // Not turned 180 anymore
+                }
+            }
+        }
+    },
+    "fengyun3_abc_dpt": {
+        "name": "FengYun-3 A/B/C DPT",
+        "live": false,
+        "frequencies": [],
+        "parameters": {
+            "dump_mersi": {
+                "type": "bool",
+                "value": false,
+                "name": "Dump MERSI(.bin)",
+                "description": "Dump raw MERSI frames for processing with\nother software, such as Fred's WeatherSat!"
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 62e6,
+                    "rrc_alpha": 0.35,
+                    "pll_bw": 0.006
+                }
+            },
+            "cadu": {
+                "fengyun_ahrpt_decoder": {
+                    "viterbi_outsync_after": 20,
+                    "viterbi_ber_thresold": 0.26,
+                    "invert_second_viterbi": true
+                }
+            },
+            "products": {
+                "fy3_instruments": {
+                    "satellite": "fy3ab",
+                    "downlink": "dpt",
+                    "mersi_bowtie": true,
+                    "mersi_histmatch": true
+                }
+            }
+        }
+    },
+    "fengyun3_d_dpt": {
+        "name": "FengYun-3 D DPT",
+        "live": false,
+        "frequencies": [],
+        "parameters": {
+            "dump_mersi": {
+                "type": "bool",
+                "value": false,
+                "name": "Dump MERSI(.bin)",
+                "description": "Dump raw MERSI frames for processing with\nother software, such as Fred's WeatherSat!"
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 150e6,
+                    "rrc_alpha": 0.35,
+                    "pll_bw": 0.006
+                }
+            },
+            "cadu": {
+                "fengyun_ahrpt_decoder": {
+                    "viterbi_outsync_after": 20,
+                    "viterbi_ber_thresold": 0.26,
+                    "invert_second_viterbi": true
+                }
+            },
+            "products": {
+                "fy3_instruments": {
+                    "satellite": "fy3d",
+                    "mersi_bowtie": true,
+                    "mersi_histmatch": true
+                }
+            }
+        }
+    },
+    "fengyun3_e_dpt": {
+        "name": "FengYun-3 E DPT",
+        "live": false,
+        "frequencies": [],
+        "parameters": {
+            "dump_mersi": {
+                "type": "bool",
+                "value": false,
+                "name": "Dump MERSI(.bin)",
+                "description": "Dump raw MERSI frames for processing with\nother software, such as Fred's WeatherSat!"
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 225e6,
+                    "rrc_alpha": 0.35,
+                    "pll_bw": 0.006
+                }
+            },
+            "cadu": {
+                "ccsds_ldpc_decoder": {
+                    "constellation": "qpsk",
+                    "ldpc_rate": "7/8",
+                    "ldpc_iterations": 10,
+                    "internal_stream": false,
+                    "internal_cadu_size": 0
+                }
+            },
+            "products": {
+                "fy3_instruments": {
+                    "satellite": "fy3e",
+                    "mersi_bowtie": true,
+                    "mersi_histmatch": true
+                }
+            }
+        }
+    },
+    "fengyun3_f_dpt": {
+        "name": "FengYun-3 F DPT",
+        "live": false,
+        "frequencies": [],
+        "parameters": {
+            "dump_mersi": {
+                "type": "bool",
+                "value": false,
+                "name": "Dump MERSI(.bin)",
+                "description": "Dump raw MERSI frames for processing with\nother software, such as Fred's WeatherSat!"
+            }
+        },
+        "work": {
+            "baseband": {},
+            "soft": {
+                "psk_demod": {
+                    "constellation": "qpsk",
+                    "symbolrate": 225e6,
+                    "rrc_alpha": 0.35,
+                    "pll_bw": 0.006
+                }
+            },
+            "cadu": {
+                "ccsds_ldpc_decoder": {
+                    "constellation": "qpsk",
+                    "ldpc_rate": "7/8",
+                    "ldpc_iterations": 10,
+                    "internal_stream": false,
+                    "internal_cadu_size": 0
+                }
+            },
+            "products": {
+                "fy3_instruments": {
+                    "satellite": "fy3f",
+                    "mersi_bowtie": true,
+                    "mersi_histmatch": true
+                }
+            }
+        }
+    },
+    "fengyun3_tlm_old": {
+        "name": "FengYun-3 TLM (Old) A/B/C/D",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [],
+        "parameters": {},
+        "work": {
+            "baseband": {},
+            "soft": {
+                "pm_demod": {
+                    "resample_after_pll": true,
+                    "symbolrate": 4096,
+                    "pll_bw": 0.01,
+                    "rrc_alpha": 0.35,
+                    "costas_bw": 0.005,
+                    "subcarrier_offset": 65536,
+                    "pll_max_offset": 3.14
+                }
+            },
+            "frames": {
+                "ccsds_simple_psk_decoder": {
+                    "constellation": "bpsk",
+                    "cadu_size": 2048,
+                    "nrzm": true,
+                    "derandomize": false,
+                    "rs_i": 0
+                }
+            },
+            "products": {}
+        }
+    },
+    "fengyun3_tlm": {
+        "name": "FengYun-3 TLM E/F",
+        "live": true,
+        "live_cfg": [
+            [
+                1,
+                0
+            ],
+            [
+                2,
+                0
+            ]
+        ],
+        "frequencies": [],
+        "parameters": {},
+        "work": {
+            "baseband": {},
+            "soft": {
+                "pm_demod": {
+                    "resample_after_pll": true,
+                    "symbolrate": 8192,
+                    "pll_bw": 0.01,
+                    "rrc_alpha": 0.35,
+                    "costas_bw": 0.005,
+                    "subcarrier_offset": 65536,
+                    "pll_max_offset": 3.14
+                }
+            },
+            "frames": {
+                "ccsds_simple_psk_decoder": {
+                    "constellation": "bpsk",
+                    "cadu_size": 4096,
+                    "nrzm": true,
+                    "derandomize": false,
+                    "rs_i": 0
+                }
+            },
+            "products": {}
+        }
+    }
+}
