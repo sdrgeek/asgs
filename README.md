@@ -170,6 +170,11 @@ cd /mnt
 sudo cp ~/Downloads/asgs.sdrgeek.local.apkovl.tar.gz .
 ```
 
+You need to create a cache directory for your apks.
+```
+sudo mkdir cache
+```
+
 Now you'll need to create your wifi credentials file:
 ```
 wpa_passphrase <SSID> | sudo tee wpa_supplicant.conf
@@ -180,3 +185,49 @@ Don't forget to unmount and you're GTG.
 cd ~
 sudo umount /mnt
 ```
+
+## Post-installation configuration
+
+You thought you're done? HAHAHAHA, nope.
+
+Let's move on with the post-installation. First boot the Raspberry Pi and connect to it. You can find it's IP address in 3 ways:
+- You don't: just `ssh root@asgs.sdrgeek.local`. Note that not all networks support this kind of setup.
+- Open your router's web interface and look for it in the DHCP client list using either the hostname or MAC address. (MACs may start with: `D8-3A-DD`, `DC-A6-32`, `E4-5F-01`, `28-CD-C1`, `B8-27-EB` or `2C-CF-67`)
+- Connect a monitor to your Pi. It'll tell you it's IP address during boot.
+
+Connect to it using `ssh root@<IP or hostname>`. The password is `asgs`.
+
+You'll have to change some things, namely the credentials and URL to your cloud, it's certificate and your coordinates.
+
+Let's start with the easy stuff: credentials and URL. You can find the credentials inside `/etc/davfs2/secrets`.
+```
+nano /etc/davfs2/secrets
+```
+Scroll down until you see a line starting with `/root/asgs-data`. Replace the username and password with your own. You can exit `nano` using `Ctrl+o`, then `Enter` and `Ctrl+x`
+
+Next up: the URL. Unfortunately that's in another file.
+```
+nano /etc/fstab
+```
+On the last line only change the URL and leave the rest as is. Note that your cloud **must** support WebDAV (NextCloud).
+
+Now the certificate. You only need to do this step if your cloud supports HTTPS (it really should) and isn't signed by a known authority (Let's Encrypt).
+```
+openssl s_client -connect HOSTNAME.at:443 -showcerts </dev/null 2>/dev/null | openssl x509 -outform PEM > cloud_cert.pem
+sudo cp cloud_cert.pem /etc/davfs2/certs/
+```
+
+The last step is to change your coordinates used by SatDump. Just `nano /root/autotrack.json` and change lines 11-13.
+
+## Finish it up
+Up until now everything is saved in RAM. That means if you would reboot now, everything you just did would be gone. You can save your changes using `lbu commit`. This takes around 10 seconds.
+
+And finally: `reboot now`
+
+## Troubleshooting
+### "SatDump doesn't start!!!!! :((("
+You can find the logs over at `/var/log/satdump.err`.
+### "Where is the SatDump service and how can I control it?"
+The service file is inside `/etc/init.d/satdump` and you can control it using `service satdump start/stop/restart/status`.
+### "I have some more questions"
+You can contact me [directly](https://matrix.to/#/@sdrgeek:matrix.sdrgeek.net) or find me in the [SatDump space](https://matrix.to/#/#satdump:altimility.com).
